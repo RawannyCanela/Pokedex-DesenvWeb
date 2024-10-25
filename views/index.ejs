@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pokedéx</title>
+</head>
+
+<body>
+
+    <ul>
+        <% pokemons.forEach(function(pokemon) { %>
+            <% }); %>
+    </ul>
+
+    <div class="container">
+        <h1>Pokedex</h1>
+        <form id="pokemonForm">
+            <input type="text" id="nome" placeholder="Nome" required>
+            <input type="text" id="tipo" placeholder="Tipo" required>
+            <input type="number" id="altura" placeholder="Altura (m)">
+            <input type="number" id="peso" placeholder="Peso (kg)" required>
+            <input type="number" id="nivelDePoder" placeholder="Nível de Poder" required>
+            <button type="submit">Adicionar Pokémon</button>
+        </form>
+        <h2>Lista de Pokémons</h2>
+        <ul id="pokemonList"></ul>
+
+        <style>
+        
+        body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("fundoo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    /*background: #fff;*/
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+            h1, h2 {
+                text-align: center;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                height: 100%;
+            }
+
+            input {
+                margin: 10px 0;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            button {
+                padding: 10px;
+                background-color: #28a745;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #a7ecb6;
+            }
+
+            .pokemonList {
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                margin-top: 20px;
+                min-height: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #pokemonList {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+            }
+
+            #pokemonList:empty::before {
+                content: "Nenhum pokémon foi adicionado ainda";
+                color: gray;
+                font-style: italic;
+                display: block;
+                text-align: center;
+            }
+
+            li {
+                background: #e9ecef;
+                margin: 5px 0;
+                padding: 10px;
+                border-radius: 4px;
+            }
+        </style>
+
+        <script>
+            document.getElementById('pokemonForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const nome = document.getElementById('nome').value;
+                const tipo = document.getElementById('tipo').value;
+                const altura = parseFloat(document.getElementById('altura').value) || 0;
+                const peso = parseFloat(document.getElementById('peso').value);
+                const nivelDePoder = parseFloat(document.getElementById('nivelDePoder').value);
+
+                const pokemon = {
+                    Nome: nome,
+                    Tipo: tipo,
+                    Altura: altura,
+                    Peso: peso,
+                    NivelDePoder: nivelDePoder
+                };
+
+                addPokemonToList(pokemon);
+                this.reset();
+            });
+
+            function addPokemonToList(pokemon) {
+                const pokemonList = document.getElementById('pokemonList');
+                const li = document.createElement('li');
+                li.textContent = `Nome: ${pokemon.Nome}, Tipo: ${pokemon.Tipo}, Altura: ${pokemon.Altura}m, Peso: ${pokemon.Peso}kg, Nível de Poder: ${pokemon.NivelDePoder}`;
+                pokemonList.appendChild(li);
+            }
+
+        </script>
+
+</body>
+
+</html>
