@@ -8,6 +8,7 @@ app.set('views', './views');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+
 app.use('/', pokemonRoutes);
 
 const PORT = process.env.PORT || 3000;

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Pokedéx</title>
+    <link href="index.css" rel="stylesheet">
 </head>
 
 <body>
@@ -14,153 +15,253 @@
     </ul>
 
     <div class="container">
-        <h1>Pokedex</h1>
+
         <form id="pokemonForm">
-            <input type="text" id="nome" placeholder="Nome" required>
+
+            <div class="perfil">
+
+                <div class="buttons">
+
+                    <button class="menino" onclick="changeImage('jogador.png')">M</button>
+                    <button class="menina" onclick="changeImage('jogadora.png')">F</button>
+
+                    <img id="profileImage" src="genero.png" alt="Imagem do Perfil">
+
+                </div>
+            </div>
+
+            <div class="titesub">
+                <h1> Jogador </h1>
+                <div class="h">
+                    <h>Insira os dados do seu Jogador!</h>
+                </div>
+            </div>
+
+            <input type="text" id="nomePessoa" placeholder="Nome" required>
+            <input type="text" id="nomeEquipe" placeholder="Equipe" required>
+
+            <div class="titesub">
+                <div class="pokemontit">
+                    <h1> Pokémon
+                </div>
+                </h1>
+                <div class="h">
+                    <h>Insira os dados do seu Pokémon!</h>
+                </div>
+            </div>
+
+            <input type="text" id="nome" placeholder="Nome do Pokémon" required>
             <input type="text" id="tipo" placeholder="Tipo" required>
             <input type="number" id="altura" placeholder="Altura (m)">
             <input type="number" id="peso" placeholder="Peso (kg)" required>
             <input type="number" id="nivelDePoder" placeholder="Nível de Poder" required>
-            <button type="submit">Adicionar Pokémon</button>
+            <div class="adicionar"> <button type="submit">Adicionar Pokémon</button> </div>
+
+
         </form>
-        <h2>Lista de Pokémons</h2>
-        <ul id="pokemonList"></ul>
 
-        <style>
-        
+
+    </div>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("fundoo.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0.5;
-    z-index: -1;
-}
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("fundoo.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            height: 90.5vh;
 
-.container {
-    max-width: 600px;
-    margin: auto;
-    /*background: #fff;*/
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        }
 
 
-            h1, h2 {
-                text-align: center;
-            }
+        .container {
+            box-sizing: border-box;
+            padding: 20px;
+            max-width: 450px;
+            margin: auto;
+            height: 80vh;
+            background-color: lightgray;
+            margin-top: 70px;
+            border-radius: 20px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.145), rgba(0, 0, 0, 0.173)), url("pokedexform.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
 
-            form {
-                display: flex;
-                flex-direction: column;
-                background-color: white;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                height: 100%;
-            }
+        }
 
-            input {
-                margin: 10px 0;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
+        form {
+            background-color: #fff;
+            padding: 5px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            height: 74.5vh;
+            position: relative;
+            text-align: center;
 
-            button {
-                padding: 10px;
-                background-color: #28a745;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
+        }
 
-            button:hover {
-                background-color: #a7ecb6;
-            }
+        h1,
+        .h {
+            margin-bottom: 5px;
+            text-align: center;
+            max-width: 250px;
+            margin: auto;
 
-            .pokemonList {
-                background-color: white;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                text-align: center;
-                margin-top: 20px;
-                min-height: 150px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
+        }
 
-            #pokemonList {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-                width: 100%;
-            }
+        h1 {
+            color: #af0404ee;
+            padding-top: 90px;
+            font-size: 23px;
+        }
 
-            #pokemonList:empty::before {
-                content: "Nenhum pokémon foi adicionado ainda";
-                color: gray;
-                font-style: italic;
-                display: block;
-                text-align: center;
-            }
+        .h {
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
 
-            li {
-                background: #e9ecef;
-                margin: 5px 0;
-                padding: 10px;
-                border-radius: 4px;
-            }
-        </style>
+        .pokemontit {
+            margin-top: -90px;
 
-        <script>
-            document.getElementById('pokemonForm').addEventListener('submit', function (event) {
-                event.preventDefault();
+        }
 
-                const nome = document.getElementById('nome').value;
-                const tipo = document.getElementById('tipo').value;
-                const altura = parseFloat(document.getElementById('altura').value) || 0;
-                const peso = parseFloat(document.getElementById('peso').value);
-                const nivelDePoder = parseFloat(document.getElementById('nivelDePoder').value);
+        .perfil,
+        img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid #cb0404ee;
+        }
 
-                const pokemon = {
-                    Nome: nome,
-                    Tipo: tipo,
-                    Altura: altura,
-                    Peso: peso,
-                    NivelDePoder: nivelDePoder
-                };
 
-                addPokemonToList(pokemon);
-                this.reset();
-            });
+        .perfil img {
+            width: 150%;
+            height: auto;
+            top: -35px;
+            left: 48%;
 
-            function addPokemonToList(pokemon) {
-                const pokemonList = document.getElementById('pokemonList');
-                const li = document.createElement('li');
-                li.textContent = `Nome: ${pokemon.Nome}, Tipo: ${pokemon.Tipo}, Altura: ${pokemon.Altura}m, Peso: ${pokemon.Peso}kg, Nível de Poder: ${pokemon.NivelDePoder}`;
-                pokemonList.appendChild(li);
-            }
 
-        </script>
+
+        }
+
+        .menina,
+        .menino {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.251)), url("pokebola.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 9px 12px;
+            width: 37px;
+            height: 37px;
+            border-radius: 50%;
+            margin-top: 117px;
+            font-weight: bold;
+            position: relative;
+            z-index: 10;
+        }
+
+
+        .menino:hover {
+            background-image: url("pokebolaazul.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: rgba(0, 0, 0, 0);
+            max-width: 80px;
+        }
+
+        .menina:hover {
+            background-image: url("pokebolarosa.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: rgba(0, 0, 0, 0);
+            max-width: 80px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            max-width: 80%;
+        }
+
+        #pokemonForm input {
+            margin-bottom: 10px;
+            width: 90%;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: px;
+        }
+
+        .adicionar button {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            max-width: 80%;
+            background-color: #af0404ee;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
+        }
+    </style>
+
+
+    <script>
+        document.getElementById('pokemonForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const tipo = document.getElementById('tipo').value;
+            const altura = parseFloat(document.getElementById('altura').value) || 0;
+            const peso = parseFloat(document.getElementById('peso').value);
+            const nivelDePoder = parseFloat(document.getElementById('nivelDePoder').value);
+
+            const pokemon = {
+                Nome: nome,
+                Tipo: tipo,
+                Altura: altura,
+                Peso: peso,
+                NivelDePoder: nivelDePoder
+            };
+
+            addPokemonToList(pokemon);
+            this.reset();
+        });
+
+        function addPokemonToList(pokemon) {
+            const pokemonList = document.getElementById('pokemonList');
+            const li = document.createElement('li');
+            li.textContent = `Nome: ${pokemon.Nome}, Tipo: ${pokemon.Tipo}, Altura: ${pokemon.Altura}m, Peso: ${pokemon.Peso}kg, Nível de Poder: ${pokemon.NivelDePoder}`;
+            pokemonList.appendChild(li);
+        }
+
+        function changeImage(image) {
+            document.getElementById('profileImage').src = image;
+        }
+
+
+    </script>
 
 </body>
 
