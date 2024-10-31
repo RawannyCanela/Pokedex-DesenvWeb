@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Pokedéx</title>
-    <link href="index.css" rel="stylesheet">
 </head>
 
 <body>
@@ -15,18 +14,13 @@
     </ul>
 
     <div class="container">
-
-        <form id="pokemonForm">
+        <form id="pokemonForm" action="/pokemon" method="POST">
 
             <div class="perfil">
-
                 <div class="buttons">
-
-                    <button class="menino" onclick="changeImage('jogador.png')">M</button>
-                    <button class="menina" onclick="changeImage('jogadora.png')">F</button>
-
+                    <button type="button" class="menino" onclick="changeImage('jogador.png')">M</button>
+                    <button type="button" class="menina" onclick="changeImage('jogadora.png')">F</button>
                     <img id="profileImage" src="genero.png" alt="Imagem do Perfil">
-
                 </div>
             </div>
 
@@ -37,31 +31,34 @@
                 </div>
             </div>
 
-            <input type="text" id="nomePessoa" placeholder="Nome" required>
-            <input type="text" id="nomeEquipe" placeholder="Equipe" required>
+            <input type="text" id="nomePessoa" name="nomePessoa" placeholder="Nome" required>
+            <input type="text" id="nomeEquipe" name="nomeEquipe" placeholder="Equipe" required>
 
             <div class="titesub">
                 <div class="pokemontit">
-                    <h1> Pokémon
+                    <h1> Pokémon </h1>
                 </div>
-                </h1>
                 <div class="h">
                     <h>Insira os dados do seu Pokémon!</h>
                 </div>
             </div>
 
-            <input type="text" id="nome" placeholder="Nome do Pokémon" required>
-            <input type="text" id="tipo" placeholder="Tipo" required>
-            <input type="number" id="altura" placeholder="Altura (m)">
-            <input type="number" id="peso" placeholder="Peso (kg)" required>
-            <input type="number" id="nivelDePoder" placeholder="Nível de Poder" required>
-            <div class="adicionar"> <button type="submit">Adicionar Pokémon</button> </div>
+            <input type="text" id="nome" name="nome" placeholder="Nome do Pokémon" required>
+            <input type="text" id="tipo" name="tipo" placeholder="Tipo" required>
+            <input type="number" id="altura" name="altura" placeholder="Altura (m)">
+            <input type="number" id="peso" name="peso" placeholder="Peso (kg)" required>
+            <input type="number" id="nivelDePoder" name="nivelDePoder" placeholder="Nível de Poder" required>
 
+            <div class="adicionar"> 
+                <button type="submit">Adicionar Pokémon</button> 
+            </div>
 
         </form>
+        <div id="pokemonList">
 
-
+        </div>
     </div>
+
     <style>
         * {
             box-sizing: border-box;
@@ -154,9 +151,6 @@
             height: auto;
             top: -35px;
             left: 48%;
-
-
-
         }
 
         .menina,
@@ -228,31 +222,12 @@
 
 
     <script>
-        document.getElementById('pokemonForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const nome = document.getElementById('nome').value;
-            const tipo = document.getElementById('tipo').value;
-            const altura = parseFloat(document.getElementById('altura').value) || 0;
-            const peso = parseFloat(document.getElementById('peso').value);
-            const nivelDePoder = parseFloat(document.getElementById('nivelDePoder').value);
-
-            const pokemon = {
-                Nome: nome,
-                Tipo: tipo,
-                Altura: altura,
-                Peso: peso,
-                NivelDePoder: nivelDePoder
-            };
-
-            addPokemonToList(pokemon);
-            this.reset();
-        });
-
+    
         function addPokemonToList(pokemon) {
             const pokemonList = document.getElementById('pokemonList');
             const li = document.createElement('li');
             li.textContent = `Nome: ${pokemon.Nome}, Tipo: ${pokemon.Tipo}, Altura: ${pokemon.Altura}m, Peso: ${pokemon.Peso}kg, Nível de Poder: ${pokemon.NivelDePoder}`;
+            console.log(li)
             pokemonList.appendChild(li);
         }
 

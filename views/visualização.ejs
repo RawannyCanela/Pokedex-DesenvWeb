@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pokedéx Aberta</title>
+
+</head>
+
+<body>
+    
+
+    <div class="container">
+
+            <div class="pokebola">
+                    <img id="pokebola" src="/pokebolaaberta.png" alt="Imagem do Perfil">
+            </div>
+
+            <div class="fundo"> </div>
+
+            <div id="pokemon-list"></div>
+        
+    </div>
+
+    <style>
+
+
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/fundoo.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            height: 90.5vh;
+
+        }
+
+
+        .container {
+            box-sizing: border-box;
+            padding: 20px;
+            max-width: 450px;
+            margin: auto;
+            height: 80vh;
+            background-color: lightgray;
+            margin-top: 70px;
+            border-radius: 20px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.145), rgba(0, 0, 0, 0.173)), url("/pokedexform.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+
+        }
+
+        .fundo {
+            background-color: #fff;
+            padding: 5px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            height: 74.5vh;
+            position: relative;
+            text-align: center;
+            z-index: 10;
+        }
+        
+
+        .pokebola, img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid #cb0404ee;
+            z-index: 20; 
+        }
+
+
+        .pokebola img {
+            width: 150%;
+            height: auto;
+            top: -35px;
+            left: 48%;
+        }
+
+</style>
+
+<script>
+ const displayPokemons = () => {
+    const pokemonList = document.getElementById('pokemon-list');
+    pokemons.forEach(pokemon => {
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <h3>Nome: ${pokemon.nome}</h3>
+            <p>Tipo: ${pokemon.tipo}</p>
+        `;
+        pokemonList.appendChild(div);
+    });
+};
+window.onload = displayPokemons;
+
+</script>
+
+</html>
