@@ -8,24 +8,39 @@
 </head>
 
 <body>
-    
+
+    <div id="pokemonList">
+
+            <div>
+                <h3>Nome: <%= pokemon.nomePessoa %>
+                </h3>
+                <h4>Equipe: <%= pokemon.nomeEquipe %>
+                </h4>
+                <p>Tipo: <%= pokemon.tipo %>
+                </p>
+                <p>Peso: <%= pokemon.peso %>
+                </p>
+                <p>Poder: <%= pokemon.nivelDePoder %>
+                </p>
+
+            </div>
+    </div>
+
 
     <div class="container">
 
-            <div class="pokebola">
-                    <img id="pokebola" src="/pokebolaaberta.png" alt="Imagem do Perfil">
-            </div>
+        <div class="pokebola">
+            <img id="pokebola" src="/pokebolaaberta.png" alt="Imagem do Perfil">
+        </div>
 
-            <div class="fundo"> </div>
+        <div class="fundo"> </div>
 
-            <div id="pokemon-list"></div>
-        
+        <div id="pokemon-list"></div>
+
     </div>
 
     <style>
-
-
-* {
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -71,9 +86,10 @@
             text-align: center;
             z-index: 10;
         }
-        
 
-        .pokebola, img {
+
+        .pokebola,
+        img {
             width: 170px;
             height: 170px;
             border-radius: 50%;
@@ -83,7 +99,7 @@
             left: 50%;
             transform: translateX(-50%);
             border: 5px solid #cb0404ee;
-            z-index: 20; 
+            z-index: 20;
         }
 
 
@@ -94,22 +110,35 @@
             left: 48%;
         }
 
-</style>
+        h3, h4, 
+        p {
+            align-items: center;
+            text-align: center;
+            color: #ff0000;
+            padding: 5px;
+            z-index: 20;
 
-<script>
- const displayPokemons = () => {
-    const pokemonList = document.getElementById('pokemon-list');
-    pokemons.forEach(pokemon => {
-        const div = document.createElement('div');
-        div.innerHTML = `
-            <h3>Nome: ${pokemon.nome}</h3>
+        }
+
+    </style>
+
+    <script>
+        const displayPokemons = () => {
+            const pokemonList = document.getElementById('pokemon-list');
+            pokemons.forEach(pokemon => {
+                const div = document.createElement('div');
+                div.innerHTML = `
+            <h2>Nome: ${pokemon.nomePessoa}</h2>
+            <h1>Tipo: ${pokemon.nomeEquipe}<h1>
             <p>Tipo: ${pokemon.tipo}</p>
+            <p>Tipo: ${pokemon.peso}</p>
+            <p>Tipo: ${pokemon.nivelDePoder}</p>
         `;
-        pokemonList.appendChild(div);
-    });
-};
-window.onload = displayPokemons;
+                pokemonList.appendChild(div);
+            });
+        };
+        window.onload = displayPokemons;
 
-</script>
+    </script>
 
 </html>
