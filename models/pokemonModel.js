@@ -12,7 +12,7 @@ const createPokemon = (nome, tipo, altura, peso, nivelPoder, nomePessoa, nomeEqu
         tipo,
         altura: parseFloat(altura),
         peso: parseFloat(peso),
-        nivelPoder: parseInt(nivelPoder)
+        nivelPoder: parseFloat(nivelPoder)
     };
     
     pokemons.push(newPokemon);

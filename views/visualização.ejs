@@ -9,33 +9,47 @@
 
 <body>
 
-    <div id="pokemonList">
-
-            <div>
-                <h3>Nome: <%= pokemon.nomePessoa %>
-                </h3>
-                <h4>Equipe: <%= pokemon.nomeEquipe %>
-                </h4>
-                <p>Tipo: <%= pokemon.tipo %>
-                </p>
-                <p>Peso: <%= pokemon.peso %>
-                </p>
-                <p>Poder: <%= pokemon.nivelDePoder %>
-                </p>
-
-            </div>
-    </div>
-
 
     <div class="container">
 
         <div class="pokebola">
-            <img id="pokebola" src="/pokebolaaberta.png" alt="Imagem do Perfil">
+            <img id="pokebola" src="/pokebola.png" alt="Imagem do Perfil">
         </div>
 
-        <div class="fundo"> </div>
+
+
+        <div class="fundo">
+            <div class="pokemonList">
+
+                <div class="nomes">
+                <h3><%= pokemon.nomePessoa %>
+                </h3>
+                </div>
+
+                <h4><%= pokemon.nomeEquipe %>
+                </h4>
+
+                <div class="dados">
+                <p><%= pokemon.tipo %> -
+                </p>
+                <p><%= pokemon.altura %> M -
+                </p>
+                <p><%= pokemon.peso %> KG -
+                </p>
+                <p> <%= pokemon.nivelPoder %> PC
+                </p>
+                </div>
+
+            </div>
+
+<button onclick="window.location.href='/'">Inserir Novo Pokémon</button>
+
+        </div>
+
 
         <div id="pokemon-list"></div>
+
+       
 
     </div>
 
@@ -54,6 +68,7 @@
             background-repeat: no-repeat;
             margin: 0;
             height: 90.5vh;
+            position: relative;
 
         }
 
@@ -110,14 +125,58 @@
             left: 48%;
         }
 
-        h3, h4, 
+        h3,
+        h4,
         p {
             align-items: center;
             text-align: center;
-            color: #ff0000;
-            padding: 5px;
+            padding: 1px;
             z-index: 20;
 
+        }
+
+        h3 {
+            color: #af0404ee;
+        }
+
+        h4 {
+            color: black;
+        }
+
+        p {
+            color: black;
+        }
+
+        .pokemonList {
+            margin-top: 90px;
+        }
+
+        .nomes {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    font-weight: bold;
+}
+
+.dados {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    margin-top: 5px;
+}
+
+button {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            max-width: 80%;
+            background-color: #af0404ee;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: 330px;
         }
 
     </style>
@@ -132,7 +191,7 @@
             <h1>Tipo: ${pokemon.nomeEquipe}<h1>
             <p>Tipo: ${pokemon.tipo}</p>
             <p>Tipo: ${pokemon.peso}</p>
-            <p>Tipo: ${pokemon.nivelDePoder}</p>
+            <p>Tipo: ${pokemon.nivelPoder}</p>
         `;
                 pokemonList.appendChild(div);
             });

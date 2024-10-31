@@ -7,3 +7,6 @@ router.get('/pokemon/:id', pokemonController.getPokemon);
 router.post('/pokemon', pokemonController.createPokemon); 
 
 module.exports = router;
+
+
+module.exports = router;

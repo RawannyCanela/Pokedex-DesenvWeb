@@ -20,7 +20,6 @@ const createPokemon = (req, res) => {
     const { nome, tipo, altura, peso, nivelPoder, nomePessoa, nomeEquipe } = req.body;
     const newPokemon = pokemonModel.createPokemon(nome, tipo, altura, peso, nivelPoder, nomePessoa, nomeEquipe);
     
-    // Redireciona para a página de detalhes do novo Pokémon inserido
     res.redirect(`/pokemon/${newPokemon.id}`);
 };
 

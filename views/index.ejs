@@ -42,7 +42,7 @@
             <input type="text" id="tipo" name="tipo" placeholder="Tipo" required>
             <input type="number" id="altura" name="altura" placeholder="Altura (m)">
             <input type="number" id="peso" name="peso" placeholder="Peso (kg)" required>
-            <input type="number" id="nivelDePoder" name="nivelDePoder" placeholder="Nível de Poder" required>
+            <input type="number" id="nivelDePoder" name="nivelPoder" placeholder="Nível de Poder" required>
 
             <div class="adicionar"> 
                 <button type="submit">Adicionar Pokémon</button> 
@@ -217,7 +217,7 @@
         function addPokemonToList(pokemon) {
             const pokemonList = document.getElementById('pokemonList');
             const li = document.createElement('li');
-            li.textContent = `Nome: ${pokemon.Nome}, Tipo: ${pokemon.Tipo}, Altura: ${pokemon.Altura}m, Peso: ${pokemon.Peso}kg, Nível de Poder: ${pokemon.NivelDePoder}`;
+            li.textContent = `Nome: ${pokemon.Nome}, Tipo: ${pokemon.Tipo}, Altura: ${pokemon.Altura}m, Peso: ${pokemon.Peso}kg, Nível de Poder: ${pokemon.NivelPoder}`;
             console.log(li)
             pokemonList.appendChild(li);
         }
