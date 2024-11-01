@@ -15,7 +15,6 @@ const getPokemon = (req, res) => {
     }
 };
 
-
 const createPokemon = (req, res) => {
     const { nome, tipo, altura, peso, nivelPoder, nomePessoa, nomeEquipe } = req.body;
     const newPokemon = pokemonModel.createPokemon(nome, tipo, altura, peso, nivelPoder, nomePessoa, nomeEquipe);
